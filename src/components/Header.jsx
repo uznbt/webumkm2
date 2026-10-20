@@ -28,6 +28,16 @@ export default function Header() {
   }, [pathname]);
 
   useEffect(() => {
+    const desktop = window.matchMedia('(min-width: 941px)');
+    const handleBreakpointChange = (event) => {
+      if (event.matches) setIsOpen(false);
+    };
+
+    desktop.addEventListener('change', handleBreakpointChange);
+    return () => desktop.removeEventListener('change', handleBreakpointChange);
+  }, []);
+
+  useEffect(() => {
     if (!isOpen) {
       document.body.style.overflow = '';
       return undefined;

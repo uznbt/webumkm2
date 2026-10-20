@@ -1,0 +1,10 @@
+node_modules
+dist
+.git
+.vercel
+.env
+.env.*
+Anti-AI-UI
+*.local.mjs
+*.pdf
+Logo.png

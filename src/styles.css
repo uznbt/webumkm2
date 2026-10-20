@@ -2567,6 +2567,7 @@ h3 {
   }
 
   .section-head__link {
+    min-height: 44px;
     margin-bottom: 0;
   }
 
@@ -2736,6 +2737,16 @@ h3 {
 
   .product-meta {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  .search-field__clear {
+    width: 44px;
+    height: 44px;
+    margin-right: -0.45rem;
+  }
+
+  .product-actions__links .text-link {
+    min-height: 44px;
   }
 
   .advantage-list li {
