@@ -96,36 +96,36 @@ export default function Header() {
         {isOpen && (
           <div className="mobile-menu" id="mobile-menu">
             <div className="container">
-              <div className="mobile-menu__header">
-                <span className="mobile-menu__badge">Menu Navigasi</span>
-                <span className="mobile-menu__hours">Buka 09.00 – 21.00 WIB</span>
-              </div>
               <nav className="mobile-menu__nav" aria-label="Navigasi seluler">
-                {navigation.map((item) => (
-                  <Link
-                    key={item.to}
-                    to={item.to}
-                    className={`mobile-menu__link${isActive(pathname, item.to) ? ' is-active' : ''}`}
-                    aria-current={isActive(pathname, item.to) ? 'page' : undefined}
-                    onClick={() => setIsOpen(false)}
-                  >
-                    <span>{item.label}</span>
-                    <ArrowUpRight size={20} aria-hidden="true" />
-                  </Link>
-                ))}
+                {navigation.map((item, index) => {
+                  const active = isActive(pathname, item.to);
+
+                  return (
+                    <Link
+                      key={item.to}
+                      to={item.to}
+                      className={`mobile-menu__link${active ? ' is-active' : ''}`}
+                      aria-current={active ? 'page' : undefined}
+                      onClick={() => setIsOpen(false)}
+                    >
+                      <span className="mobile-menu__index" aria-hidden="true">
+                        {String(index + 1).padStart(2, '0')}
+                      </span>
+                      <span className="mobile-menu__label">{item.label}</span>
+                      {active && <span className="mobile-menu__current">Halaman ini</span>}
+                    </Link>
+                  );
+                })}
               </nav>
               <div className="mobile-menu__footer">
-                <div>
-                  <p className="mobile-menu__address">{site.shortAddress}</p>
-                  <span className="mobile-menu__meta">Harga mulai Rp2.500</span>
-                </div>
+                <p className="mobile-menu__address">{site.shortAddress}</p>
                 <a
                   className="button button--primary button--small"
                   href={getOrderUrl()}
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <span>Chat via {orderChannel}</span>
+                  <span>Pesan via {orderChannel}</span>
                   <ArrowUpRight size={15} aria-hidden="true" />
                 </a>
               </div>

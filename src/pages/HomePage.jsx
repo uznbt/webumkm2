@@ -99,36 +99,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Mobile Quick Category Rail - visible on mobile */}
-      <section className="mobile-categories-strip" aria-label="Kategori Cepat">
-        <div className="container">
-          <div className="mobile-categories-strip__scroll">
-            <Link to="/katalog" className="mobile-cat-pill is-all">
-              <span className="mobile-cat-pill__title">Semua Menu</span>
-              <span className="mobile-cat-pill__badge">{products.length}</span>
-            </Link>
-            {categories.map((cat) => (
-              <Link
-                key={cat.id}
-                to={`/katalog?kategori=${cat.id}`}
-                className="mobile-cat-pill"
-              >
-                <img
-                  src={cat.image}
-                  alt=""
-                  width="28"
-                  height="28"
-                  className="mobile-cat-pill__thumb"
-                  loading="lazy"
-                />
-                <span className="mobile-cat-pill__title">{cat.label}</span>
-                <span className="mobile-cat-pill__badge">{countByCategory(cat.id)}</span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section className="section home-featured" aria-labelledby="featured-title">
         <div className="container">
           <div className="section-head">
