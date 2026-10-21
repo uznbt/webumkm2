@@ -71,7 +71,8 @@ export default function Footer() {
           © {year} {site.name}. Semua hak dilindungi.
         </p>
         <p className="footer__note">
-          Foto menu merupakan ilustrasi. Harga dan ketersediaan dapat berubah.
+          Foto menu berasal dari dokumentasi kedai; sebagian menu belum memiliki foto. Harga dan
+          ketersediaan dapat berubah.
         </p>
       </div>
     </footer>

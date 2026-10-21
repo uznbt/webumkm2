@@ -21,7 +21,6 @@ export const categories = [
     number: '03',
     kicker: 'Buat melepas dahaga',
     description: 'Dari es teler sampai minuman kemasan dingin.',
-    image: '/images/products/es-teler.webp',
   },
 ];
 
@@ -32,7 +31,7 @@ export const products = [
     category: 'makanan',
     price: 10000,
     image: '/images/products/nasi-pencok-telor-dadar.webp',
-    imageAlt: 'Ilustrasi nasi dengan lauk dan telur, mewakili nasi pencok telor dadar',
+    imageAlt: 'Nasi pencok telor dadar dengan dadar jagung, tahu, ikan asin, dan tumis buncis',
     short: 'Nasi hangat dengan pencok khas, telor dadar, dan sambal.',
     description:
       'Menu andalan Kedai Ibu Kost. Nasi hangat disajikan bersama pencok sayur khas Sunda, telor dadar, dan sambal. Rasa rumahan yang pas untuk makan siang.',
@@ -45,8 +44,6 @@ export const products = [
     name: 'Nasi Pencok Telor Dadar Ikan Asin',
     category: 'makanan',
     price: 13000,
-    image: '/images/products/nasi-pencok-telor-dadar-ikan-asin.webp',
-    imageAlt: 'Ilustrasi nasi dengan ikan asin dan lauk pendamping',
     short: 'Nasi pencok, telor dadar, plus ikan asin yang gurih.',
     description:
       'Versi lebih lengkap dari nasi pencok favorit: nasi hangat, pencok, telor dadar, sambal, dan ikan asin gurih.',
@@ -58,10 +55,11 @@ export const products = [
     category: 'makanan',
     price: 15000,
     image: '/images/products/nasi-ayam-serundeng.webp',
-    imageAlt: 'Ilustrasi nasi ayam serundeng dengan sambal dan lalapan',
+    imageAlt: 'Nasi ayam serundeng dengan sambal, tahu, tempe, dan lalapan',
     short: 'Ayam serundeng, sambal, dan lalap segar dalam satu piring.',
     description:
       'Nasi dengan ayam serundeng berbumbu, sambal, dan lalapan segar. Pilihan lengkap untuk makan siang yang mengenyangkan.',
+    featured: true,
     notes: ['Disajikan sebagai satu porsi nasi.'],
   },
   {
@@ -71,7 +69,7 @@ export const products = [
     price: 1000,
     priceFrom: true,
     image: '/images/products/seblak-prasmanan.webp',
-    imageAlt: 'Ilustrasi semangkuk seblak dengan kuah dan topping',
+    imageAlt: 'Semangkuk seblak dengan kerupuk, tahu, sayur, dan irisan jeruk nipis',
     short: 'Racik topping seblak sendiri. Mulai dari Rp1.000 per topping.',
     description:
       'Ambil topping seblak sesuai selera, lalu biarkan dapur Ibu Kost yang meraciknya. Harga menyesuaikan topping yang dipilih, mulai dari Rp1.000.',
@@ -86,8 +84,6 @@ export const products = [
     category: 'makanan',
     price: 2000,
     priceFrom: true,
-    image: '/images/products/topping-lauk-nasi.webp',
-    imageAlt: 'Ilustrasi aneka lauk pendamping nasi',
     short: 'Tambahan lauk untuk nasi. Mulai dari Rp2.000.',
     description:
       'Ingin porsi lebih lengkap? Tambahkan lauk pilihan ke nasi kamu. Harga lauk mulai dari Rp2.000 dan menyesuaikan jenis lauk.',
@@ -98,8 +94,6 @@ export const products = [
     name: 'Pisang Kembung Coklat',
     category: 'cemilan',
     price: 7000,
-    image: '/images/products/pisang-kembung-coklat.webp',
-    imageAlt: 'Ilustrasi pisang goreng dengan lapisan coklat',
     short: 'Pisang goreng manis dengan lapisan coklat.',
     description:
       'Pisang kembung goreng dengan lapisan coklat manis. Camilan hangat yang pas untuk sore atau teman ngobrol.',
@@ -109,8 +103,6 @@ export const products = [
     name: 'Pisang Kembung Keju',
     category: 'cemilan',
     price: 7000,
-    image: '/images/products/pisang-kembung-keju.webp',
-    imageAlt: 'Ilustrasi pisang goreng dengan taburan keju',
     short: 'Pisang kembung goreng dengan taburan keju gurih.',
     description:
       'Pisang kembung goreng dengan taburan keju gurih. Manis dan asin dalam satu gigitan.',
@@ -120,8 +112,6 @@ export const products = [
     name: 'Pisang Kembung Keju Susu',
     category: 'cemilan',
     price: 10000,
-    image: '/images/products/pisang-kembung-keju-susu.webp',
-    imageAlt: 'Ilustrasi pisang goreng dengan topping keju dan susu',
     short: 'Perpaduan keju dan susu di atas pisang kembung goreng.',
     description:
       'Pisang kembung goreng dengan topping keju dan susu. Pilihan yang lebih creamy untuk pencinta camilan manis.',
@@ -132,7 +122,7 @@ export const products = [
     category: 'cemilan',
     price: 10000,
     image: '/images/products/pisang-kembung-coklat-keju.webp',
-    imageAlt: 'Ilustrasi pisang goreng dengan topping coklat dan keju',
+    imageAlt: 'Pisang kembung dengan topping coklat dan keju parut',
     short: 'Coklat manis dan keju gurih dalam satu porsi.',
     description:
       'Dua rasa favorit dalam satu porsi: pisang kembung goreng dengan topping coklat manis dan keju gurih.',
@@ -145,7 +135,7 @@ export const products = [
     category: 'cemilan',
     price: 7000,
     image: '/images/products/pisang-kembung-tiramisu.webp',
-    imageAlt: 'Ilustrasi pisang goreng dengan topping rasa tiramisu',
+    imageAlt: 'Pisang kembung dengan topping tiramisu dan matcha',
     short: 'Pisang kembung dengan rasa tiramisu yang creamy.',
     description:
       'Pisang kembung goreng dengan rasa tiramisu. Camilan manis dengan aroma khas untuk variasi waktu santai.',
@@ -156,7 +146,7 @@ export const products = [
     category: 'cemilan',
     price: 2500,
     image: '/images/products/risoles-mentai.webp',
-    imageAlt: 'Ilustrasi risoles goreng yang renyah',
+    imageAlt: 'Dua risoles mentai goreng dengan lapisan tepung renyah',
     short: 'Risoles goreng dengan saus mentai yang creamy.',
     description:
       'Risoles renyah dengan saus mentai creamy. Camilan gurih berukuran pas untuk satu gigitan.',
@@ -166,9 +156,7 @@ export const products = [
     slug: 'cireng-isi',
     name: 'Cireng Isi',
     category: 'cemilan',
-    price: 10000,
-    image: '/images/products/cireng-isi.webp',
-    imageAlt: 'Ilustrasi cireng dengan isian dan saus',
+    price: 1000,
     short: 'Cireng kenyal dengan isian gurih.',
     description:
       'Cireng kenyal dengan isian gurih, cocok disantap bersama saus favorit.',
@@ -178,23 +166,19 @@ export const products = [
     name: 'Cireng Chili Oil',
     category: 'cemilan',
     price: 10000,
-    image: '/images/products/cireng-chili-oil.webp',
-    imageAlt: 'Ilustrasi cireng renyah dengan chili oil',
     short: 'Cireng renyah dengan siraman chili oil pedas.',
     description:
       'Cireng renyah dengan siraman chili oil pedas. Untuk kamu yang suka camilan gurih dengan sentuhan pedas.',
     spicy: true,
   },
   {
-    slug: 'cireng-baju-kuah-seblak',
-    name: 'Cireng Baju Kuah Seblak',
+    slug: 'cireng-banjur-kuah-seblak',
+    name: 'Cireng Banjur Kuah Seblak',
     category: 'cemilan',
     price: 10000,
-    image: '/images/products/cireng-baju-kuah-seblak.webp',
-    imageAlt: 'Ilustrasi cireng dalam kuah seblak',
     short: 'Cireng berbalut dengan kuah seblak yang pedas.',
     description:
-      'Cireng berbalut adonan dengan kuah seblak. Kenyal, hangat, dan pedas dalam satu mangkuk.',
+      'Cireng goreng yang dibanjur kuah seblak. Kenyal, hangat, dan pedas dalam satu mangkuk.',
     spicy: true,
   },
   {
@@ -202,8 +186,6 @@ export const products = [
     name: 'Tahu Jeletot',
     category: 'cemilan',
     price: 2500,
-    image: '/images/products/tahu-jeletot.webp',
-    imageAlt: 'Ilustrasi tahu goreng isi cabai',
     short: 'Tahu isi cabai yang pedasnya bikin ketagihan.',
     description:
       'Tahu goreng dengan isian cabai yang pedas. Camilan kecil dengan rasa yang berani.',
@@ -215,8 +197,6 @@ export const products = [
     name: 'Cilok Bumbu Seblak',
     category: 'cemilan',
     price: 10000,
-    image: '/images/products/cilok-bumbu-seblak.webp',
-    imageAlt: 'Ilustrasi cilok dengan kuah dan bumbu',
     short: 'Cilok kenyal dengan bumbu seblak khas.',
     description:
       'Cilok kenyal yang disajikan dengan bumbu seblak. Camilan gurih dan sedikit pedas untuk teman santai.',
@@ -228,8 +208,6 @@ export const products = [
     name: 'Kentang',
     category: 'cemilan',
     price: 10000,
-    image: '/images/products/kentang.webp',
-    imageAlt: 'Ilustrasi kentang goreng renyah',
     short: 'Kentang goreng renyah untuk teman ngobrol.',
     description:
       'Kentang goreng renyah dengan rasa gurih. Simpel, hangat, dan enak buat dinikmati bersama.',
@@ -239,8 +217,6 @@ export const products = [
     name: 'Ceker Mercon',
     category: 'cemilan',
     price: 10000,
-    image: '/images/products/ceker-mercon.webp',
-    imageAlt: 'Ilustrasi ceker ayam dengan bumbu pedas',
     short: 'Ceker ayam dengan bumbu pedas mercon.',
     description:
       'Ceker ayam berbumbu pedas. Nikmati selagi hangat untuk sensasi pedas yang nagih.',
@@ -251,8 +227,6 @@ export const products = [
     name: 'Otak-Otak Mercon',
     category: 'cemilan',
     price: 10000,
-    image: '/images/products/otak-otak-mercon.webp',
-    imageAlt: 'Ilustrasi otak-otak dengan sambal pedas',
     short: 'Otak-otak dengan sambal mercon yang pedas.',
     description:
       'Otak-otak yang disajikan dengan sambal pedas. Camilan gurih dengan rasa pedas yang kuat.',
@@ -263,20 +237,15 @@ export const products = [
     name: 'Es Teler',
     category: 'minuman',
     price: 10000,
-    image: '/images/products/es-teler.webp',
-    imageAlt: 'Ilustrasi es teler dengan buah dan susu',
     short: 'Es serut dengan buah, kelapa, dan susu.',
     description:
       'Es teler dingin dengan aneka topping buah, kelapa, dan susu. Pilihan segar untuk cuaca panas.',
-    featured: true,
   },
   {
-    slug: 'es-pisojo',
-    name: 'Es Pisojo',
+    slug: 'es-pisjo',
+    name: 'Es Pisjo',
     category: 'minuman',
     price: 10000,
-    image: '/images/products/es-pisojo.webp',
-    imageAlt: 'Ilustrasi es pisang ijo',
     short: 'Es pisang ijo yang manis, dingin, dan menyegarkan.',
     description:
       'Es pisang ijo dengan kuah manis dan es serut. Hidangan penutup sekaligus minuman yang menyegarkan.',
@@ -286,8 +255,6 @@ export const products = [
     name: 'Es Teh Manis',
     category: 'minuman',
     price: 6000,
-    image: '/images/products/es-teh-manis.webp',
-    imageAlt: 'Segelas es teh manis',
     short: 'Teh dingin dengan gula. Simpel dan selalu pas.',
     description:
       'Teh seduh dingin dengan gula. Teman makan yang sederhana dan tidak pernah salah.',
@@ -297,8 +264,6 @@ export const products = [
     name: 'Tea Jus / Jas Jus',
     category: 'minuman',
     price: 5000,
-    image: '/images/products/tea-jus.webp',
-    imageAlt: 'Ilustrasi minuman jus jeruk segar',
     short: 'Minuman jus teh segar untuk melepas dahaga.',
     description:
       'Pilihan minuman jus teh yang segar. Cocok diminum dingin bersama menu makan atau camilan.',
@@ -308,8 +273,6 @@ export const products = [
     name: 'Gooday Freeze',
     category: 'minuman',
     price: 2000,
-    image: '/images/products/gooday-freeze.webp',
-    imageAlt: 'Ilustrasi minuman dingin Gooday Freeze',
     short: 'Minuman dingin manis, teman santai di tanggal tua.',
     description:
       'Gooday Freeze disajikan dingin. Pilihan minuman manis dengan harga ramah untuk menemani waktu santai.',
@@ -320,8 +283,6 @@ export const products = [
     name: 'Max Tea',
     category: 'minuman',
     price: 5000,
-    image: '/images/products/max-tea.webp',
-    imageAlt: 'Ilustrasi teh susu dingin',
     short: 'Teh instan dengan rasa manis dan creamy.',
     description:
       'Max Tea dengan rasa teh yang manis dan creamy. Disajikan sesuai ketersediaan di kedai.',
@@ -332,8 +293,6 @@ export const products = [
     name: 'Drink Beng-Beng',
     category: 'minuman',
     price: 5000,
-    image: '/images/products/drink-beng-beng.webp',
-    imageAlt: 'Ilustrasi minuman coklat',
     short: 'Minuman coklat manis dan creamy.',
     description:
       'Drink Beng-Beng dengan rasa coklat manis dan creamy. Pilihan buat pencinta minuman coklat.',
@@ -344,8 +303,6 @@ export const products = [
     name: 'Chocolatos',
     category: 'minuman',
     price: 5000,
-    image: '/images/products/chocolatos.webp',
-    imageAlt: 'Ilustrasi minuman coklat hangat',
     short: 'Minuman coklat Chocolatos yang nikmat.',
     description:
       'Minuman coklat Chocolatos. Bisa dinikmati hangat atau dingin sesuai selera.',
@@ -356,8 +313,6 @@ export const products = [
     name: 'Kopi Seduh',
     category: 'minuman',
     price: 5000,
-    image: '/images/products/kopi-seduh.webp',
-    imageAlt: 'Secangkir kopi seduh',
     short: 'Kopi seduh hangat dengan aroma khas.',
     description:
       'Kopi seduh hangat. Sederhana, pekat, dan pas untuk menemani makan atau mengerjakan tugas.',
@@ -367,8 +322,6 @@ export const products = [
     name: 'Air Mineral',
     category: 'minuman',
     price: 4000,
-    image: '/images/products/air-mineral.webp',
-    imageAlt: 'Botol-botol air mineral',
     short: 'Air mineral botol untuk teman makan.',
     description:
       'Air mineral dalam kemasan botol. Pilihan netral untuk menemani makan di kedai.',
@@ -379,8 +332,6 @@ export const products = [
     name: 'Teh Pucuk',
     category: 'minuman',
     price: 5000,
-    image: '/images/products/teh-pucuk.webp',
-    imageAlt: 'Botol Teh Pucuk Harum',
     short: 'Teh Pucuk Harum dingin dalam kemasan botol.',
     description:
       'Teh Pucuk Harum dingin dalam kemasan botol. Pilihan praktis untuk melepas dahaga.',
@@ -391,8 +342,6 @@ export const products = [
     name: 'Floridina',
     category: 'minuman',
     price: 4000,
-    image: '/images/products/floridina.webp',
-    imageAlt: 'Ilustrasi minuman jeruk Floridina',
     short: 'Minuman jeruk kemasan yang segar.',
     description:
       'Minuman rasa jeruk dalam kemasan. Segar dan ringan untuk diminum dingin.',
@@ -403,8 +352,6 @@ export const products = [
     name: 'Pocari Sweat',
     category: 'minuman',
     price: 8000,
-    image: '/images/products/pocari-sweat.webp',
-    imageAlt: 'Ilustrasi botol minuman isotonik',
     short: 'Minuman isotonik untuk mengganti cairan.',
     description:
       'Pocari Sweat dalam kemasan. Minuman isotonik untuk membantu mengganti cairan tubuh.',
@@ -415,8 +362,6 @@ export const products = [
     name: 'Adem Sari Botol',
     category: 'minuman',
     price: 8000,
-    image: '/images/products/adem-sari.webp',
-    imageAlt: 'Ilustrasi minuman herbal Adem Sari',
     short: 'Minuman herbal penyegar dalam kemasan botol.',
     description:
       'Adem Sari botol, minuman herbal penyegar. Disajikan dingin sesuai ketersediaan di kedai.',
@@ -427,8 +372,6 @@ export const products = [
     name: 'Milku',
     category: 'minuman',
     price: 4000,
-    image: '/images/products/milku.webp',
-    imageAlt: 'Ilustrasi susu Milku dalam kemasan',
     short: 'Minuman susu Milku yang creamy.',
     description:
       'Milku, minuman susu dalam kemasan. Manis dan creamy untuk menemani camilan.',

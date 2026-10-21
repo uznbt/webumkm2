@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { ArrowLeft, ArrowUpRight, Flame, MessageCircle, ShieldCheck } from 'lucide-react';
 import ProductCard from '../components/ProductCard.jsx';
+import ProductPlaceholder from '../components/ProductPlaceholder.jsx';
 import usePageMeta from '../hooks/usePageMeta.js';
 import { getCategory, getProductBySlug, getRelatedProducts } from '../data/products.js';
 import { buildOrderMessage, formatRupiah, getOrderUrl, orderChannel, site } from '../data/site.js';
@@ -87,14 +88,18 @@ export default function ProductPage() {
 
           <div className="product-detail">
             <div className="product-media">
-              <img
-                src={product.image}
-                alt={product.imageAlt}
-                width="1200"
-                height="900"
-                fetchPriority="high"
-              />
-              <p>Foto ilustrasi menu.</p>
+              {product.image ? (
+                <img
+                  src={product.image}
+                  alt={product.imageAlt}
+                  width="1200"
+                  height="900"
+                  fetchPriority="high"
+                />
+              ) : (
+                <ProductPlaceholder category={product.category} name={product.name} />
+              )}
+              <p>{product.image ? 'Foto asli menu.' : 'Foto menu ini belum tersedia.'}</p>
             </div>
 
             <div className="product-info">

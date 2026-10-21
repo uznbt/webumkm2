@@ -56,8 +56,8 @@ Kontak dan peta diatur di `src/data/site.js`.
 
 ## Catatan data dan foto
 
-- Katalog berisi 34 menu unik dari menu yang diberikan. Harga mengikuti rentang **Rp2.500–Rp15.000**.
-- Foto produk pada katalog merupakan ilustrasi, bukan foto langsung setiap menu. Keterangan ini ditampilkan di situs.
+- Katalog berisi 34 menu unik dari menu yang diberikan. Harga mengikuti rentang **Rp1.000–Rp15.000**.
+- Enam menu sudah memakai foto asli dari kedai (nasi pencok, nasi ayam serundeng, seblak, risoles mentai, pisang kembung tiramisu, pisang kembung coklat keju). Menu lain sengaja ditampilkan tanpa foto, bukan memakai ilustrasi.
 - Foto kedai, tim, dan suasana berasal dari dokumentasi Kedai Ibu Kost serta unggahan Instagram resmi.
 - Lisensi dan atribusi lengkap ada di halaman `/kredit-foto`.
 - Data bisnis yang tersedia: pemilik **Ibu Ike Haryani**, berdiri **2021**, kedai fisik sejak **2024**, sertifikasi **Halal & PBBR**.

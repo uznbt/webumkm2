@@ -1,0 +1,600 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<title>Pemasaran Digital — Kedai Ibu Kost (Upgrade: Website)</title>
+<style>
+  @font-face{font-family:'Pacifico';src:url('assets/fonts/pacifico-latin.woff2') format('woff2');font-weight:400;font-style:normal;}
+  @font-face{font-family:'Caveat';src:url('assets/fonts/caveat-latin.woff2') format('woff2');font-weight:400;font-style:normal;}
+  @font-face{font-family:'Fraunces';src:url('assets/fonts/fraunces-latin-wght-normal.woff2') format('woff2');font-weight:100 900;font-style:normal;}
+  @font-face{font-family:'Karla';src:url('assets/fonts/karla-latin-wght-normal.woff2') format('woff2');font-weight:200 800;font-style:normal;}
+
+  @page{size:1440pt 810pt;margin:0;}
+  html,body{margin:0;padding:0;background:#fff;}
+  body{-webkit-print-color-adjust:exact;print-color-adjust:exact;font-family:'Karla',sans-serif;color:#241812;}
+
+  :root{
+    --cream:#fffbf4; --paper:#fdf4f4; --pink:#f6d3dd; --pink-2:#efb3c6; --rose:#d76a92;
+    --maroon:#75271d; --maroon-2:#933d2f; --mustard:#e8ad3d; --sage:#67725c;
+    --ink:#241812; --ink-2:#5e4a3d; --ink-3:#8a7364; --line:rgba(36,24,18,.14);
+  }
+
+  .slide{
+    width:1920px;height:1080px;position:relative;overflow:hidden;
+    box-sizing:border-box;padding:70px 96px 40px;
+    display:flex;flex-direction:column;
+    page-break-after:always;break-after:page;
+    background:
+      radial-gradient(1200px 700px at 88% -10%, #fdeaf0 0%, rgba(253,234,240,0) 60%),
+      radial-gradient(900px 600px at -10% 110%, #fdf0e2 0%, rgba(253,240,226,0) 62%),
+      var(--cream);
+  }
+  .slide:last-child{page-break-after:auto;break-after:auto;}
+
+  /* decorative */
+  .grid-paper{
+    background-image:
+      repeating-linear-gradient(0deg,rgba(215,106,146,.13) 0 2px,transparent 2px 64px),
+      repeating-linear-gradient(90deg,rgba(215,106,146,.13) 0 2px,transparent 2px 64px);
+    background-color:#fffaf8;
+  }
+  .blob{position:absolute;border-radius:50%;filter:blur(2px);opacity:.55;pointer-events:none;}
+  .b-pink{background:#f9dbe4;} .b-mustard{background:#fae6c2;} .b-sage{background:#e3e7dc;}
+  .deco{position:absolute;pointer-events:none;}
+  .tape{
+    position:absolute;width:230px;height:60px;
+    background:repeating-linear-gradient(45deg,rgba(232,173,61,.6) 0 14px,rgba(232,173,61,.3) 14px 28px);
+    border-left:1px dashed rgba(36,24,18,.18);border-right:1px dashed rgba(36,24,18,.18);
+    box-shadow:0 6px 14px rgba(36,24,18,.12);
+  }
+
+  /* header / footer */
+  .s-head{position:relative;z-index:1;flex:0 0 auto;display:flex;align-items:flex-start;justify-content:space-between;gap:40px;}
+  .eyebrow{display:inline-block;font-size:20px;letter-spacing:.24em;text-transform:uppercase;font-weight:700;color:var(--maroon);opacity:.75;}
+  .s-title{margin:6px 0 0;font-family:'Pacifico',cursive;font-size:64px;line-height:1.05;font-weight:400;color:var(--maroon);}
+  .s-sub{margin-top:10px;font-size:24px;color:var(--ink-2);max-width:1060px;line-height:1.45;}
+  .s-head-right{flex:0 0 auto;display:flex;flex-direction:column;align-items:center;gap:10px;padding-top:4px;}
+  .s-logo{width:88px;height:88px;border-radius:50%;object-fit:cover;box-shadow:0 8px 20px rgba(66,32,19,.18);border:4px solid #fff;}
+  .s-head-tag{font-size:19px;font-weight:700;letter-spacing:.06em;color:var(--ink-2);background:#fff;border:2px solid var(--line);padding:8px 16px;border-radius:999px;box-shadow:0 6px 16px rgba(66,32,19,.08);white-space:nowrap;}
+  .s-body{position:relative;z-index:1;flex:1 1 auto;min-height:0;padding:30px 0 14px;display:flex;flex-direction:column;}
+  .s-foot{position:relative;z-index:1;flex:0 0 auto;margin-top:auto;padding-top:14px;display:flex;justify-content:space-between;align-items:center;font-size:19px;color:var(--ink-3);letter-spacing:.04em;}
+  .s-foot .pill{background:#fff;border:2px solid var(--line);border-radius:999px;padding:6px 18px;font-weight:700;color:var(--ink-2);}
+
+  /* cards */
+  .card{background:#fff;border:2px solid var(--line);border-radius:26px;box-shadow:0 14px 34px rgba(66,32,19,.08);padding:28px 32px;}
+  .card h3{font-family:'Fraunces',serif;font-size:30px;margin:0 0 10px;font-weight:600;letter-spacing:-.01em;}
+  .card p{margin:0;font-size:22px;line-height:1.5;color:var(--ink-2);}
+  .stack{display:flex;flex-direction:column;gap:20px;}
+
+  ul.list{list-style:none;margin:0;padding:0;}
+  ul.list li{position:relative;padding-left:52px;margin-bottom:18px;font-size:24px;line-height:1.42;color:var(--ink);}
+  ul.list li:last-child{margin-bottom:0;}
+  ul.list li::before{content:'';position:absolute;left:0;top:6px;width:30px;height:30px;border-radius:50%;
+    background:radial-gradient(circle at 34% 30%,#f7d3dd,#efb3c6);border:2px solid rgba(117,39,29,.25);}
+  ul.list.mustard li::before{background:radial-gradient(circle at 34% 30%,#fae6c2,#e8ad3d);}
+  ul.list.sage li::before{background:radial-gradient(circle at 34% 30%,#e7ebe0,#67725c);border-color:rgba(39,58,28,.3);}
+  ul.list.maroon li::before{background:radial-gradient(circle at 34% 30%,#d08c7c,#933d2f);border-color:rgba(117,39,29,.35);}
+  b{color:var(--maroon);font-weight:700;}
+
+  .tagrow{display:flex;gap:14px;flex-wrap:wrap;}
+  .tag{font-size:21px;font-weight:700;padding:9px 20px;border-radius:999px;border:2px solid var(--line);background:#fff;color:var(--ink-2);}
+  .tag.maroon{background:var(--maroon);color:#fff;border-color:var(--maroon);}
+  .tag.mustard{background:#fbe9c8;color:#6b4a12;border-color:#e8ad3d;}
+  .tag.pink{background:#fbe0e8;color:#8d2f56;border-color:#efb3c6;}
+  .tag.sage{background:#e6eadf;color:#3f4a36;border-color:#9aa78c;}
+
+  .browser{background:#fff;border:2px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 24px 60px rgba(66,32,19,.18);display:flex;flex-direction:column;height:100%;}
+  .browser-bar{flex:0 0 auto;display:flex;align-items:center;gap:10px;padding:12px 18px;background:#f3ebe0;border-bottom:2px solid var(--line);}
+  .dot{width:16px;height:16px;border-radius:50%;background:#d9c9b8;}
+  .url{flex:1;margin-left:14px;background:#fff;border:2px solid var(--line);border-radius:999px;padding:7px 20px;font-size:19px;color:var(--ink-2);font-weight:600;}
+  .browser img{flex:1 1 auto;min-height:0;display:block;width:100%;object-fit:cover;object-position:top left;}
+
+  .shot{background:#fff;border:4px solid #fff;border-radius:26px;box-shadow:0 24px 60px rgba(66,32,19,.22);overflow:hidden;display:flex;align-items:center;justify-content:center;}
+  .shot img{max-width:100%;max-height:100%;width:auto;height:auto;display:block;}
+
+  .note{border-left:8px solid var(--mustard);background:#fff8e9;border-radius:0 18px 18px 0;padding:20px 26px;font-size:22px;color:var(--ink-2);line-height:1.45;}
+  .kicker{font-family:'Caveat',cursive;font-size:38px;color:var(--maroon);line-height:1;}
+</style>
+</head>
+<body>
+
+<section class="slide">
+  <div class="blob b-pink" style="width:760px;height:760px;right:-180px;top:-220px;"></div>
+  <div class="blob b-mustard" style="width:520px;height:520px;left:-160px;bottom:-190px;"></div>
+  <img class="deco" src="assets/img/deco-flower.png" style="left:-90px;top:-60px;width:360px;transform:rotate(-18deg);opacity:.9;">
+  <img class="deco" src="assets/img/deco-star.png" style="right:-70px;bottom:-40px;width:320px;transform:rotate(12deg);opacity:.85;">
+  <img class="deco" src="assets/img/hero-nasi.jpg" style="right:150px;top:210px;width:640px;border-radius:38px;box-shadow:0 30px 70px rgba(66,32,19,.22);transform:rotate(2deg);">
+
+  <div style="position:absolute;left:130px;top:150px;width:960px;z-index:1;">
+    <div class="tape" style="left:60px;top:-34px;transform:rotate(-3deg);"></div>
+    <div class="grid-paper" style="border-radius:34px;padding:54px 62px 60px;box-shadow:0 26px 60px rgba(66,32,19,.14);border:2px solid var(--line);">
+      <div class="eyebrow">Upgrade Presentasi · Kelompok 4</div>
+      <h1 style="font-family:'Pacifico',cursive;font-size:104px;line-height:1.02;margin:18px 0 0;color:var(--maroon);font-weight:400;">Pemasaran<br>Digital</h1>
+      <div style="margin-top:26px;display:flex;align-items:center;gap:18px;">
+        <span style="font-family:'Fraunces',serif;font-size:46px;color:var(--ink);">+ Website</span>
+        <span class="tag maroon" style="font-size:22px;">Media Promosi Baru</span>
+      </div>
+      <div style="margin-top:32px;font-size:27px;line-height:1.5;color:var(--ink-2);max-width:720px;">
+        Strategi pengembangan pemasaran digital <b>Kedai Ibu Kost</b> melalui TikTok, Instagram, Facebook, dan kini <b>website</b> sebagai katalog resmi.
+      </div>
+    </div>
+    <div style="margin-top:34px;display:flex;align-items:center;gap:22px;">
+      <img src="assets/img/logo.jpg" style="width:86px;height:86px;border-radius:22px;object-fit:cover;background:#fff;border:3px solid var(--line);">
+      <div>
+        <div style="font-family:'Pacifico',cursive;font-size:40px;color:var(--maroon);">Kelompok 4 · Kelas 3F</div>
+        <div style="font-size:24px;color:var(--ink-2);margin-top:4px;">Dosen: Yeni Sari Wulandari, S.Pi., M.P.</div>
+      </div>
+    </div>
+  </div>
+  <div class="s-foot"><span>Kedai Ibu Kost · Pasirjengkol, Karawang</span><span>01</span></div>
+</section>
+
+<section class="slide">
+  <div class="blob b-pink" style="width:620px;height:620px;right:-160px;bottom:-200px;"></div>
+  <div class="s-head">
+    <div>
+      <div class="eyebrow">Susunan Tim</div>
+      <h2 class="s-title">Anggota Kelompok</h2>
+    </div>
+    <div class="s-head-right">
+      <img class="s-logo" src="assets/img/logo.jpg" alt="">
+      <div class="s-head-tag">Kelompok 4 · Kelas 3F</div>
+    </div>
+  </div>
+  <div class="s-body" style="flex-direction:row;gap:56px;">
+      <div class="card paper grid-paper" style="padding:40px 44px;flex:1.12 1 0;min-width:0;">
+        <ul class="list maroon" style="font-size:29px;">
+          <li><b>Suci Nur Khadijah</b> — 2510631200091</li>
+          <li><b>Nurul Fazrin</b> — 2510631200037</li>
+          <li><b>Tina Saffarini</b> — 2510631200092</li>
+          <li><b>Sela Bonita</b> — 2510631200090</li>
+          <li><b>Zahira Nurisnaini</b> — 2510631200139</li>
+        </ul>
+        <div style="margin-top:32px;border-top:2px dashed var(--line);padding-top:24px;font-size:24px;color:var(--ink-2);line-height:1.5;">
+          Pembagian tugas dalam kelompok:
+          <div class="tagrow" style="margin-top:16px;">
+            <span class="tag pink">Instagram</span>
+            <span class="tag" style="border-color:#1877f2;color:#12509c;">Facebook</span>
+            <span class="tag maroon">Website</span>
+            <span class="tag mustard">Dokumentasi</span>
+            <span class="tag sage">Konten &amp; Copy</span>
+          </div>
+        </div>
+      </div>
+      <div class="stack" style="flex:1 1 0;min-width:0;">
+        <div style="position:relative;flex:1 1 auto;min-height:0;height:100%;grid-template-rows:minmax(0,1fr);">
+          <img src="assets/img/doc-team.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:30px;border:4px solid #fff;box-shadow:0 24px 60px rgba(66,32,19,.2);">
+          <div class="tape" style="left:50%;transform:translateX(-50%) rotate(-2deg);top:-26px;"></div>
+          <div style="position:absolute;left:24px;bottom:24px;background:rgba(255,251,244,.94);border:2px solid var(--line);border-radius:18px;padding:12px 22px;font-size:21px;font-weight:700;color:var(--ink-2);">Dokumentasi bersama kedai</div>
+        </div>
+        <div class="note">Dosen: <b>Yeni Sari Wulandari, S.Pi., M.P.</b> — tugas marketing digital kelompok: upgrade media promosi dari TikTok + Instagram + Facebook menjadi <b>ditambah website</b>.</div>
+      </div>
+  </div>
+  <div class="s-foot"><span>Pemasaran Digital · Kedai Ibu Kost</span><span>02</span></div>
+</section>
+
+<section class="slide">
+  <div class="blob b-mustard" style="width:560px;height:560px;left:-200px;top:-200px;"></div>
+  <div class="blob b-sage" style="width:460px;height:460px;right:-140px;bottom:-160px;"></div>
+  <div class="s-head">
+    <div>
+      <div class="eyebrow">Gambaran Umum</div>
+      <h2 class="s-title">Profil Usaha</h2>
+    </div>
+    <div class="s-head-right">
+      <img class="s-logo" src="assets/img/logo.jpg" alt="">
+      <div class="s-head-tag">UMKM Kuliner · Skala Mikro</div>
+    </div>
+  </div>
+  <div class="s-body" style="flex-direction:row;gap:44px;">
+      <div class="stack" style="flex:1 1 0;min-width:0;">
+        <div class="card grid-paper" style="padding:34px 40px;">
+          <ul class="list" style="font-size:25px;">
+            <li><b>Nama usaha</b> — Kedai Ibu Kost</li>
+            <li><b>Lokasi</b> — Pasirjengkol, Majalaya, Karawang</li>
+            <li><b>Pemilik</b> — Ibu Ike Haryani</li>
+            <li><b>Tahun berdiri</b> — 2021 (kedai fisik sejak 2024)</li>
+            <li><b>Jenis usaha</b> — Kuliner (makanan &amp; minuman)</li>
+          </ul>
+        </div>
+        <div style="position:relative;flex:1 1 auto;min-height:0;height:100%;grid-template-rows:minmax(0,1fr);">
+          <img src="assets/img/storefront.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:26px;border:4px solid #fff;box-shadow:0 20px 48px rgba(66,32,19,.2);">
+          <div style="position:absolute;left:22px;bottom:22px;background:rgba(255,251,244,.94);border:2px solid var(--line);border-radius:16px;padding:10px 20px;font-size:20px;font-weight:700;color:var(--ink-2);">Kedai Ibu Kost, Pasirjengkol</div>
+        </div>
+      </div>
+      <div class="stack" style="flex:1 1 0;min-width:0;">
+        <div class="card paper" style="padding:34px 40px;">
+          <ul class="list mustard" style="font-size:25px;">
+            <li><b>Target usaha</b> — anak kost, mahasiswa, pekerja, dan warga sekitar</li>
+            <li><b>Kisaran harga</b> — Rp1.000 – Rp15.000</li>
+            <li><b>Menu unggulan</b> — Nasi Pencok (telur, dadar, ikan asin)</li>
+            <li><b>Legalitas</b> — PBBR dan sertifikasi halal</li>
+          </ul>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;flex:0 0 auto;">
+          <div class="card" style="text-align:center;padding:26px 14px;"><div style="font-family:'Fraunces',serif;font-size:52px;color:var(--maroon);">2021</div><p style="font-size:20px;">Tahun berdiri</p></div>
+          <div class="card" style="text-align:center;padding:26px 14px;"><div style="font-family:'Fraunces',serif;font-size:52px;color:var(--maroon);">34</div><p style="font-size:20px;">Menu terdaftar</p></div>
+          <div class="card" style="text-align:center;padding:26px 14px;"><div style="font-family:'Fraunces',serif;font-size:52px;color:var(--maroon);">24/7</div><p style="font-size:20px;">Akses katalog</p></div>
+        </div>
+        <div class="note" style="flex:1 1 auto;display:flex;align-items:center;"><p style="margin:0;">Semua data di atas dipakai sebagai dasar penyusunan <b>strategi pemasaran digital</b> kelompok: mulai dari menentukan target pasar, memilih platform, sampai menetapkan <b>tujuan website</b>.</p></div>
+      </div>
+  </div>
+  <div class="s-foot"><span>Pemasaran Digital · Kedai Ibu Kost</span><span>03</span></div>
+</section>
+
+<section class="slide">
+  <div class="blob b-pink" style="width:600px;height:600px;left:-220px;bottom:-200px;"></div>
+  <div class="s-head">
+    <div>
+      <div class="eyebrow">Titik Awal</div>
+      <h2 class="s-title">Kondisi Awal & Perkembangan</h2>
+      <p class="s-sub">Promosi dimulai dari satu platform, lalu berkembang bertahap — dan pada versi ini ditambah <b>website</b>.</p>
+    </div>
+    <div class="s-head-right">
+      <img class="s-logo" src="assets/img/logo.jpg" alt="">
+      <div class="s-head-tag">3 Tahap Pengembangan</div>
+    </div>
+  </div>
+  <div class="s-body">
+    <div style="display:grid;grid-template-columns:1fr 1.15fr;gap:40px;">
+      <div class="card" style="border-color:rgba(36,24,18,.2);background:#f7f2ea;">
+        <div class="kicker" style="font-size:34px;color:var(--ink-3);">Sebelum</div>
+        <h3 style="font-family:'Fraunces',serif;font-size:34px;margin:6px 0 16px;">Hanya TikTok</h3>
+        <ul class="list" style="font-size:24px;">
+          <li>Promosi produk hanya lewat akun TikTok</li>
+          <li>Jangkauan terbatas pada pengikut & sekitar kedai</li>
+          <li>Konten tidak terjadwal rutin</li>
+          <li>Belum ada halaman yang menjelaskan menu & harga lengkap</li>
+        </ul>
+      </div>
+      <div class="card grid-paper" style="border-color:var(--maroon);box-shadow:0 18px 44px rgba(117,39,29,.16);">
+        <div class="kicker">Sekarang</div>
+        <h3 style="font-family:'Fraunces',serif;font-size:34px;margin:6px 0 18px;">Empat channel promosi</h3>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+          <div style="background:#fff;border:2px solid var(--line);border-radius:20px;padding:18px 22px;"><b style="font-size:25px;">TikTok</b><p style="font-size:21px;">Video promosi & cuitan</p></div>
+          <div style="background:#fff;border:2px solid var(--line);border-radius:20px;padding:18px 22px;"><b style="font-size:25px;">Instagram</b><p style="font-size:21px;">Foto produk & reels</p></div>
+          <div style="background:#fff;border:2px solid var(--line);border-radius:20px;padding:18px 22px;"><b style="font-size:25px;">Facebook</b><p style="font-size:21px;">Halaman & grup warga</p></div>
+          <div style="background:#fff;border:2px solid var(--maroon);border-radius:20px;padding:18px 22px;position:relative;"><span class="tag maroon" style="position:absolute;right:16px;top:-14px;font-size:18px;">BARU</span><b style="font-size:25px;">Website</b><p style="font-size:21px;">Katalog & profil resmi</p></div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:34px;display:grid;grid-template-columns:repeat(3,1fr);gap:22px;">
+      <div class="card" style="padding:22px 26px;border-left:10px solid var(--pink-2);"><b style="font-size:24px;">Tahap 1 — TikTok</b><p style="font-size:21px;margin-top:6px;">Satu-satunya media promosi awal.</p></div>
+      <div class="card" style="padding:22px 26px;border-left:10px solid var(--sage);"><b style="font-size:24px;">Tahap 2 — Instagram &amp; Facebook</b><p style="font-size:21px;margin-top:6px;">Jangkauan diperluas ke warga & anak muda.</p></div>
+      <div class="card" style="padding:22px 26px;border-left:10px solid var(--maroon);background:#fff6f3;"><b style="font-size:24px;">Tahap 3 — Website (upgrade)</b><p style="font-size:21px;margin-top:6px;">Katalog resmi yang bisa diakses kapan saja.</p></div>
+    </div>
+  </div>
+  <div class="s-foot"><span>Pemasaran Digital · Kedai Ibu Kost</span><span>04</span></div>
+</section>
+
+<section class="slide">
+  <div class="blob b-pink" style="width:600px;height:600px;right:-250px;bottom:-230px;"></div>
+  <div class="s-head">
+    <div>
+      <div class="eyebrow">Media Sosial</div>
+      <h2 class="s-title">Instagram</h2>
+      <p class="s-sub">Kanal visual untuk menarik perhatian, lalu mengarahkan pembeli ke <b>katalog website</b>.</p>
+    </div>
+    <div class="s-head-right">
+      <img src="assets/img/ig-logo.png" style="width:88px;height:88px;object-fit:contain;">
+      <div class="s-head-tag">@kedai.ibukost</div>
+    </div>
+  </div>
+  <div class="s-body" style="flex-direction:row;gap:52px;">
+      <div style="position:relative;flex:0 0 500px;min-width:0;">
+        <div class="tape" style="left:50%;transform:translateX(-50%) rotate(-4deg);top:-28px;"></div>
+        <div class="shot" style="height:100%;">
+          <img src="assets/img/ig-shot.jpg" alt="Akun Instagram Kedai Ibu Kost">
+        </div>
+      </div>
+      <div class="stack" style="flex:1 1 0;min-width:0;">
+        <div class="card grid-paper" style="padding:30px 34px;">
+          <ul class="list" style="font-size:24px;">
+            <li>Feed berisi <b>foto menu, suasana kedai, dan aktivitas harian</b></li>
+            <li><b>Reels, Story, dan hashtag</b> menjangkau orang baru tanpa iklan</li>
+            <li>Bio memuat lokasi kedai dan tautan pesan</li>
+          </ul>
+        </div>
+        <div class="card" style="padding:22px 26px;display:flex;align-items:center;gap:24px;">
+          <img src="assets/img/qr-instagram.png" alt="QR profil Instagram Kedai Ibu Kost" style="width:170px;height:170px;flex:0 0 170px;">
+          <div>
+            <div style="font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);font-weight:700;">Scan untuk membuka</div>
+            <div style="font-family:'Fraunces',serif;font-size:30px;color:var(--maroon);line-height:1.2;margin-top:6px;">@kedai.ibukost</div>
+            <div style="font-size:19px;color:var(--ink-2);margin-top:2px;">Profil Instagram</div>
+          </div>
+        </div>
+        <div class="card" style="padding:22px 26px;background:#fff6f9;border-color:var(--pink-2);flex:1 1 auto;">
+          <h3>Peran di funnel</h3>
+          <p>Menarik perhatian lewat konten harian, lalu pembeli diarahkan ke <b>website</b> untuk melihat menu lengkap.</p>
+        </div>
+      </div>
+  </div>
+  <div class="s-foot"><span>Pemasaran Digital · Kedai Ibu Kost</span><span>05</span></div>
+</section>
+
+<section class="slide">
+  <div class="blob b-sage" style="width:620px;height:620px;left:-250px;bottom:-230px;"></div>
+  <div class="s-head">
+    <div>
+      <div class="eyebrow">Media Sosial</div>
+      <h2 class="s-title">Facebook</h2>
+      <p class="s-sub">Menjaga hubungan pelanggan lama dan menjangkau <b>warga sekitar</b>.</p>
+    </div>
+    <div class="s-head-right">
+      <div style="width:88px;height:88px;border-radius:50%;background:#1877f2;display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Fraunces',serif;font-size:62px;font-weight:700;">f</div>
+      <div class="s-head-tag">Kedai Ibu Kost</div>
+    </div>
+  </div>
+  <div class="s-body" style="flex-direction:row;gap:52px;">
+      <div style="position:relative;flex:0 0 460px;min-width:0;">
+        <div class="tape" style="left:50%;transform:translateX(-50%) rotate(3deg);top:-28px;"></div>
+        <div class="shot" style="height:100%;">
+          <img src="assets/img/fb-shot.jpg" alt="Halaman Facebook Kedai Ibu Kost">
+        </div>
+      </div>
+      <div class="stack" style="flex:1 1 0;min-width:0;">
+        <div class="card grid-paper" style="padding:30px 34px;">
+          <ul class="list sage" style="font-size:24px;">
+            <li>Jangkauan <b>30 tahun ke atas</b>, termasuk pembeli potensial</li>
+            <li><b>FB Page</b> memuat alamat, jam buka, dan kontak usaha</li>
+            <li><b>Grup dan Marketplace</b> untuk warga sekitar</li>
+          </ul>
+        </div>
+        <div class="card" style="padding:22px 26px;display:flex;align-items:center;gap:24px;">
+          <img src="assets/img/qr-facebook.png" alt="QR halaman Facebook Kedai Ibu Kost" style="width:170px;height:170px;flex:0 0 170px;">
+          <div>
+            <div style="font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);font-weight:700;">Scan untuk membuka</div>
+            <div style="font-family:'Fraunces',serif;font-size:30px;color:#12509c;line-height:1.2;margin-top:6px;">Kedai Ibu Kost</div>
+            <div style="font-size:19px;color:var(--ink-2);margin-top:2px;">Halaman Facebook</div>
+          </div>
+        </div>
+        <div class="card" style="padding:22px 26px;background:#f2f5ef;border-color:#9aa78c;flex:1 1 auto;">
+          <h3>Peran di funnel</h3>
+          <p>Menjangkau warga dan pekerja lewat <b>grup</b>, lalu tautan <b>website</b> dipasang di halaman usaha.</p>
+        </div>
+      </div>
+  </div>
+  <div class="s-foot"><span>Pemasaran Digital · Kedai Ibu Kost</span><span>06</span></div>
+</section>
+
+<section class="slide">
+  <div class="blob b-mustard" style="width:560px;height:560px;right:-220px;bottom:-220px;"></div>
+  <div class="s-head">
+    <div>
+      <div class="eyebrow">Media Baru</div>
+      <h2 class="s-title">Website Kedai Ibu Kost</h2>
+      <p class="s-sub">Satu tautan untuk <b>menu, harga, dan lokasi</b> — bisa dibuka kapan saja.</p>
+    </div>
+    <div class="s-head-right">
+      <img class="s-logo" src="assets/img/logo.jpg" alt="">
+      <div class="s-head-tag">kedaiibukost.vercel.app</div>
+    </div>
+  </div>
+  <div class="s-body" style="flex-direction:row;gap:44px;">
+      <div class="browser" style="flex:1 1 auto;min-width:0;">
+        <div class="browser-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">🔒 kedaiibukost.vercel.app/katalog</span></div>
+        <img src="assets/img/site-katalog.jpg" alt="Katalog menu website">
+      </div>
+      <div class="stack" style="flex:0 0 460px;min-width:0;">
+        <div class="card" style="padding:26px 30px;">
+          <h3>Yang bisa dilakukan</h3>
+          <ul class="list" style="font-size:22px;">
+            <li>Cari dan filter <b>34 menu</b> berdasarkan kategori &amp; harga</li>
+            <li>Buka halaman produk: deskripsi, harga, tombol pesan</li>
+            <li>Lihat lokasi, kontak, dan profil kedai</li>
+            <li>Tampil rapi di HP maupun laptop</li>
+          </ul>
+        </div>
+        <div class="card" style="padding:20px 22px;display:flex;align-items:center;gap:20px;">
+          <img src="assets/img/qr-website.png" alt="QR website Kedai Ibu Kost" style="width:150px;height:150px;flex:0 0 150px;">
+          <div style="min-width:0;">
+            <div style="font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);font-weight:700;">Scan untuk membuka</div>
+            <div style="font-family:'Fraunces',serif;font-size:20px;color:var(--maroon);line-height:1.25;margin-top:6px;white-space:nowrap;">kedaiibukost.vercel.app</div>
+            <div style="font-size:18px;color:var(--ink-2);margin-top:2px;">Website resmi</div>
+          </div>
+        </div>
+        <div class="note" style="padding:16px 22px;font-size:19px;flex:1 1 auto;">Tautan ini juga dipasang di bio Instagram dan halaman Facebook.</div>
+      </div>
+  </div>
+  <div class="s-foot"><span>Pemasaran Digital · Kedai Ibu Kost</span><span>07</span></div>
+</section>
+
+<section class="slide">
+  <div class="blob b-pink" style="width:520px;height:520px;right:-190px;bottom:-200px;"></div>
+  <div class="s-head">
+    <div>
+      <div class="eyebrow">Integrasi Channel</div>
+      <h2 class="s-title">Peran Masing-masing Platform</h2>
+      <p class="s-sub">Ketiganya saling melengkapi: <b>media sosial menarik perhatian</b>, <b>website memberi informasi lengkap</b>.</p>
+    </div>
+    <div class="s-head-right">
+      <img class="s-logo" src="assets/img/logo.jpg" alt="">
+      <div class="s-head-tag">Media Sosial + Website</div>
+    </div>
+  </div>
+  <div class="s-body">
+    <div class="card" style="padding:0;overflow:hidden;flex:1 1 auto;min-height:0;display:flex;">
+      <table style="width:100%;border-collapse:collapse;font-size:23px;">
+        <thead>
+          <tr>
+            <th style="text-align:left;padding:20px 28px;background:#f3ebe0;border-bottom:2px solid var(--line);font-size:20px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);width:220px;">Aspek</th>
+            <th style="text-align:left;padding:20px 28px;background:#fbe0e8;border-bottom:2px solid var(--line);font-size:24px;color:#8d2f56;">Instagram</th>
+            <th style="text-align:left;padding:20px 28px;background:#e3ecfb;border-bottom:2px solid var(--line);font-size:24px;color:#12509c;">Facebook</th>
+            <th style="text-align:left;padding:20px 28px;background:var(--maroon);border-bottom:2px solid var(--line);font-size:24px;color:#fff;">Website <span style="font-size:18px;background:#e8ad3d;color:#4a3308;padding:4px 12px;border-radius:999px;margin-left:8px;">BARU</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td style="padding:16px 28px;border-bottom:2px solid var(--line);font-weight:700;">Fungsi utama</td><td style="padding:16px 28px;border-bottom:2px solid var(--line);color:var(--ink-2);">Menarik perhatian &amp; interaksi</td><td style="padding:16px 28px;border-bottom:2px solid var(--line);color:var(--ink-2);">Menjaga hubungan pelanggan</td><td style="padding:16px 28px;border-bottom:2px solid var(--line);color:var(--ink-2);"><b>Pusat katalog &amp; informasi</b></td></tr>
+          <tr><td style="padding:16px 28px;border-bottom:2px solid var(--line);font-weight:700;">Jenis konten</td><td style="padding:16px 28px;border-bottom:2px solid var(--line);color:var(--ink-2);">Foto &amp; video harian</td><td style="padding:16px 28px;border-bottom:2px solid var(--line);color:var(--ink-2);">Postingan, grup, review</td><td style="padding:16px 28px;border-bottom:2px solid var(--line);color:var(--ink-2);">Daftar menu, profil, lokasi</td></tr>
+          <tr><td style="padding:16px 28px;border-bottom:2px solid var(--line);font-weight:700;">Segmen</td><td style="padding:16px 28px;border-bottom:2px solid var(--line);color:var(--ink-2);">Remaja – dewasa muda</td><td style="padding:16px 28px;border-bottom:2px solid var(--line);color:var(--ink-2);">30 tahun ke atas &amp; warga</td><td style="padding:16px 28px;border-bottom:2px solid var(--line);color:var(--ink-2);"><b>Semua orang, tanpa batas waktu</b></td></tr>
+          <tr><td style="padding:16px 28px;border-bottom:2px solid var(--line);font-weight:700;">Fitur kunci</td><td style="padding:16px 28px;border-bottom:2px solid var(--line);color:var(--ink-2);">Reels, Story, hashtag</td><td style="padding:16px 28px;border-bottom:2px solid var(--line);color:var(--ink-2);">Grup, Marketplace</td><td style="padding:16px 28px;border-bottom:2px solid var(--line);color:var(--ink-2);">Pencarian, filter, halaman produk</td></tr>
+          <tr><td style="padding:16px 28px;border-bottom:2px solid var(--line);font-weight:700;">Aksi calon pembeli</td><td style="padding:16px 28px;border-bottom:2px solid var(--line);color:var(--ink-2);">DM / link di bio</td><td style="padding:16px 28px;border-bottom:2px solid var(--line);color:var(--ink-2);">Chat &amp; gabung grup</td><td style="padding:16px 28px;border-bottom:2px solid var(--line);color:var(--ink-2);"><b>Pesan via WhatsApp/IG + buka Maps</b></td></tr>
+          <tr><td style="padding:16px 28px;font-weight:700;">Biaya</td><td style="padding:16px 28px;color:var(--ink-2);">Gratis</td><td style="padding:16px 28px;color:var(--ink-2);">Gratis</td><td style="padding:16px 28px;color:var(--ink-2);"><b>Gratis (hosting Vercel)</b></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="s-foot"><span>Pemasaran Digital · Kedai Ibu Kost</span><span>08</span></div>
+</section>
+
+<section class="slide">
+  <div class="blob b-mustard" style="width:560px;height:560px;left:-220px;bottom:-210px;"></div>
+  <div class="s-head">
+    <div>
+      <div class="eyebrow">Integrasi Channel</div>
+      <h2 class="s-title">Alur Pemesanan Digital</h2>
+      <p class="s-sub">Website menjadi <b>tahap kedua</b> di antara media sosial dan konfirmasi pesanan.</p>
+    </div>
+    <div class="s-head-right">
+      <img class="s-logo" src="assets/img/logo.jpg" alt="">
+      <div class="s-head-tag">Funnel Pemesanan</div>
+    </div>
+  </div>
+  <div class="s-body">
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:22px;flex:0 0 auto;">
+      <div class="card" style="border-top:10px solid var(--pink-2);">
+        <div class="kicker" style="font-size:30px;">Tahap 1</div>
+        <h3 style="font-size:28px;margin-top:4px;">Menarik perhatian</h3>
+        <p>TikTok, Instagram, dan Facebook menampilkan foto produk &amp; promo menarik.</p>
+        <div class="tagrow" style="margin-top:16px;"><span class="tag pink">TikTok</span><span class="tag pink">IG</span><span class="tag" style="border-color:#1877f2;color:#12509c;">FB</span></div>
+      </div>
+      <div class="card" style="border-top:10px solid var(--maroon);background:#fff6f3;">
+        <div class="kicker" style="font-size:30px;">Tahap 2</div>
+        <h3 style="font-size:28px;margin-top:4px;">Cek katalog</h3>
+        <p>Pelanggan membuka <b>website</b> untuk melihat menu, harga, foto, dan lokasi kedai.</p>
+        <div class="tagrow" style="margin-top:16px;"><span class="tag maroon">Website</span></div>
+      </div>
+      <div class="card" style="border-top:10px solid var(--sage);">
+        <div class="kicker" style="font-size:30px;">Tahap 3</div>
+        <h3 style="font-size:28px;margin-top:4px;">Memesan</h3>
+        <p>Klik tombol pesan → chat <b>WhatsApp / Instagram</b> dengan pesan otomatis berisi nama menu.</p>
+        <div class="tagrow" style="margin-top:16px;"><span class="tag sage">WhatsApp</span><span class="tag sage">DM IG</span></div>
+      </div>
+      <div class="card" style="border-top:10px solid var(--mustard);">
+        <div class="kicker" style="font-size:30px;">Tahap 4</div>
+        <h3 style="font-size:28px;margin-top:4px;">Ambil di kedai</h3>
+        <p>Pesanan dikonfirmasi, pelanggan datang ke <b>Pasirjengkol</b> atau konfirmasi ambil nanti.</p>
+        <div class="tagrow" style="margin-top:16px;"><span class="tag mustard">Take away</span><span class="tag mustard">Dine in</span></div>
+      </div>
+    </div>
+    <div class="note" style="margin-top:32px;">Tambahan: dari halaman <b>Kontak</b> pelanggan bisa membuka <b>keterangan lokasi</b> langsung di Google Maps, sehingga tidak perlu bertanya alamat.</div>
+    <div style="flex:1 1 auto;min-height:0;display:flex;align-items:center;justify-content:center;">
+      <div class="tagrow" style="justify-content:center;">
+        <span class="tag">TikTok</span><span class="tag pink">Instagram</span><span class="tag" style="border-color:#1877f2;color:#12509c;">Facebook</span>
+        <span style="font-size:34px;color:var(--ink-3);">→</span>
+        <span class="tag maroon">Website</span>
+        <span style="font-size:34px;color:var(--ink-3);">→</span>
+        <span class="tag sage">WhatsApp</span>
+        <span style="font-size:34px;color:var(--ink-3);">→</span>
+        <span class="tag mustard">Pesanan</span>
+      </div>
+    </div>
+  </div>
+  <div class="s-foot"><span>Pemasaran Digital · Kedai Ibu Kost</span><span>09</span></div>
+</section>
+
+<section class="slide">
+  <div class="blob b-sage" style="width:540px;height:540px;right:-200px;top:-200px;"></div>
+  <div class="s-head">
+    <div>
+      <div class="eyebrow">Evaluasi</div>
+      <h2 class="s-title">Dampak &amp; Kesimpulan</h2>
+      <p class="s-sub">Website melengkapi media sosial: informasi lebih lengkap, jangkauan lebih luas.</p>
+    </div>
+    <div class="s-head-right">
+      <img class="s-logo" src="assets/img/logo.jpg" alt="">
+      <div class="s-head-tag">Setelah Upgrade</div>
+    </div>
+  </div>
+  <div class="s-body">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:36px;">
+      <div class="card grid-paper" style="padding:30px 34px;">
+        <h3 style="color:var(--maroon);">Dampak positif</h3>
+        <ul class="list maroon" style="font-size:23px;margin-top:14px;">
+          <li>Menu dan harga bisa dicek <b>sebelum datang</b></li>
+          <li>Jangkauan meluas ke <b>pasar luar</b></li>
+          <li>Identitas produk lebih kuat</li>
+          <li>Mudah diperbarui saat ada menu baru</li>
+        </ul>
+      </div>
+      <div class="card" style="padding:30px 34px;background:#f2f5ef;border-color:#9aa78c;">
+        <h3 style="color:var(--sage);">Keterbatasan &amp; rencana</h3>
+        <ul class="list sage" style="font-size:23px;margin-top:14px;">
+          <li>Baru <b>6 dari 34 menu</b> yang punya foto asli</li>
+          <li>Nomor WhatsApp &amp; email belum dipublikasikan</li>
+          <li>Belum ada SEO lanjutan &amp; Google Business Profile</li>
+        </ul>
+      </div>
+    </div>
+    <div class="note" style="margin-top:30px;font-size:24px;">
+      <b>Kesimpulan:</b> media sosial menarik perhatian, <b>website</b> menyajikan informasi lengkap dan rapi, lalu pemesanan tetap lewat WhatsApp atau Instagram. Jangkauan pun meluas tanpa biaya iklan besar.
+    </div>
+    <div style="margin-top:28px;display:grid;grid-template-columns:repeat(3,1fr);gap:22px;flex:1 1 auto;min-height:0;grid-template-rows:minmax(0,1fr);">
+      <div class="card" style="text-align:center;display:flex;flex-direction:column;justify-content:center;"><div style="font-family:'Fraunces',serif;font-size:46px;color:var(--maroon);">3</div><p style="font-size:20px;">Platform sosial aktif</p></div>
+      <div class="card" style="text-align:center;display:flex;flex-direction:column;justify-content:center;"><div style="font-family:'Fraunces',serif;font-size:46px;color:var(--maroon);">+1</div><p style="font-size:20px;">Website (upgrade)</p></div>
+      <div class="card" style="text-align:center;display:flex;flex-direction:column;justify-content:center;"><div style="font-family:'Fraunces',serif;font-size:46px;color:var(--maroon);">34</div><p style="font-size:20px;">Menu terkatalog</p></div>
+    </div>
+  </div>
+  <div class="s-foot"><span>Pemasaran Digital · Kedai Ibu Kost</span><span>10</span></div>
+</section>
+
+<section class="slide">
+  <div class="blob b-mustard" style="width:560px;height:560px;left:-220px;top:-200px;"></div>
+  <div class="s-head">
+    <div>
+      <div class="eyebrow">Dokumentasi</div>
+      <h2 class="s-title">Dokumentasi Kelompok</h2>
+      <p class="s-sub">Proses pembuatan konten, pengelolaan akun, sampai pengerjaan website bersama pemilik usaha.</p>
+    </div>
+    <div class="s-head-right">
+      <img class="s-logo" src="assets/img/logo.jpg" alt="">
+      <div class="s-head-tag">Dokumentasi</div>
+    </div>
+  </div>
+  <div class="s-body">
+    <div style="display:flex;flex-direction:row;gap:32px;flex:1 1 auto;min-height:0;">
+      <div style="position:relative;flex:1 1 0;min-width:0;">
+        <img src="assets/img/doc-team.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:30px;border:4px solid #fff;box-shadow:0 22px 54px rgba(66,32,19,.2);align-self:stretch;">
+        <div class="tape" style="left:50%;transform:translateX(-50%) rotate(-3deg);top:-26px;"></div>
+      </div>
+      <div style="position:relative;flex:1 1 0;min-width:0;">
+        <img src="assets/img/doc-front.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:30px;border:4px solid #fff;box-shadow:0 22px 54px rgba(66,32,19,.2);align-self:stretch;">
+        <div class="tape" style="left:50%;transform:translateX(-50%) rotate(2deg);top:-26px;"></div>
+      </div>
+      <div style="position:relative;flex:1 1 0;min-width:0;">
+        <img src="assets/img/doc-counter.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:30px;border:4px solid #fff;box-shadow:0 22px 54px rgba(66,32,19,.2);align-self:stretch;">
+        <div class="tape" style="left:50%;transform:translateX(-50%) rotate(-1deg);top:-26px;"></div>
+      </div>
+      <div style="position:relative;flex:1 1 0;min-width:0;">
+        <img src="assets/img/doc-side.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:30px;border:4px solid #fff;box-shadow:0 22px 54px rgba(66,32,19,.2);align-self:stretch;">
+        <div class="tape" style="left:50%;transform:translateX(-50%) rotate(3deg);top:-26px;"></div>
+      </div>
+    </div>
+    <div class="note" style="margin-top:26px;flex:0 0 auto;">Foto-foto di atas dipakai sebagai dokumentasi kegiatan kelompok bersama <b>Kedai Ibu Kost</b> di Pasirjengkol, Karawang.</div>
+  </div>
+  <div class="s-foot"><span>Pemasaran Digital · Kedai Ibu Kost</span><span>11</span></div>
+</section>
+
+<section class="slide">
+  <div class="blob b-pink" style="width:820px;height:820px;left:-260px;top:-280px;"></div>
+  <div class="blob b-mustard" style="width:620px;height:620px;right:-220px;bottom:-220px;"></div>
+  <img class="deco" src="assets/img/deco-flower.png" style="right:-70px;top:-50px;width:320px;transform:rotate(16deg);opacity:.9;">
+  <img class="deco" src="assets/img/deco-star.png" style="left:-235px;bottom:-175px;width:280px;transform:rotate(-10deg);opacity:.85;">
+  <div style="position:relative;z-index:1;flex:1 1 auto;display:flex;flex-direction:column;align-items:center;justify-content:center;padding-bottom:60px;">
+    <div class="eyebrow">Kedai Ibu Kost · Pasirjengkol, Karawang</div>
+    <h1 style="font-family:'Pacifico',cursive;font-size:118px;color:var(--maroon);margin:24px 0 0;font-weight:400;">Terima Kasih</h1>
+    <div class="grid-paper" style="margin-top:38px;border-radius:28px;padding:28px 56px;border:2px solid var(--line);box-shadow:0 18px 44px rgba(66,32,19,.12);">
+      <p style="font-size:28px;color:var(--ink-2);margin:0;text-align:center;"><b>Terima kasih</b> atas perhatian dan pembahasan dari dosen serta teman-teman.</p>
+      <div class="tagrow" style="justify-content:center;margin-top:20px;">
+        <span class="tag pink">TikTok</span><span class="tag pink">Instagram</span>
+        <span class="tag" style="border-color:#1877f2;color:#12509c;">Facebook</span><span class="tag maroon">Website</span>
+      </div>
+    </div>
+    <div style="margin-top:40px;font-family:'Pacifico',cursive;font-size:44px;color:var(--maroon);">Kelompok 4 · Kelas 3F</div>
+    <div style="font-size:25px;color:var(--ink-2);margin-top:10px;">Dosen: Yeni Sari Wulandari, S.Pi., M.P.</div>
+  </div>
+  <div class="s-foot"><span>Kedai Ibu Kost · Pemasaran Digital</span><span>12</span></div>
+</section>
+
+</body>
+</html>

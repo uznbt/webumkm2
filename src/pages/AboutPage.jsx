@@ -28,7 +28,7 @@ const advantages = [
   },
   {
     title: 'Harga ramah untuk makan sehari-hari',
-    text: 'Semua menu berada di rentang Rp2.500–Rp15.000, dengan beberapa pilihan topping mulai Rp1.000.',
+    text: 'Semua menu berada di rentang Rp1.000–Rp15.000, termasuk pilihan topping seblak.',
     icon: Wallet,
   },
   {
@@ -120,14 +120,14 @@ export default function AboutPage() {
         <div className="container about-story__grid">
           <div className="about-story__media">
             <img
-              src="/images/site/storefront.webp"
-              alt="Dokumentasi kedai Ibu Kost di Pasirjengkol"
-              width="1000"
-              height="1250"
+              src="/images/site/storefront-side.webp"
+              alt="Suasana pelayanan di Kedai Ibu Kost, Pasirjengkol"
+              width="900"
+              height="1200"
               loading="lazy"
               decoding="async"
             />
-            <p>Dokumentasi kedai, Pasirjengkol.</p>
+            <p>Suasana pelayanan di kedai, Pasirjengkol.</p>
           </div>
 
           <div className="about-story__copy">
@@ -237,7 +237,7 @@ export default function AboutPage() {
         <div className="container about-closing__grid">
           <img
             src="/images/site/food-spread.webp"
-            alt="Ilustrasi aneka hidangan Indonesia"
+            alt="Suasana meja prasmanan dan rak camilan di Kedai Ibu Kost"
             width="1000"
             height="750"
             loading="lazy"

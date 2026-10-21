@@ -10,7 +10,7 @@ export const site = {
     'Kedai makan rumahan di Pasirjengkol, Majalaya, Karawang. Menu terjangkau untuk anak kos, mahasiswa, pekerja, dan warga sekitar.',
   address: 'Pasirjengkol, Majalaya, Karawang, Jawa Barat',
   shortAddress: 'Pasirjengkol, Karawang',
-  priceRange: 'Rp2.500–Rp15.000',
+  priceRange: 'Rp1.000–Rp15.000',
   instagram: 'https://www.instagram.com/kedai.ibukost',
   instagramHandle: '@kedai.ibukost',
   facebook: 'https://www.facebook.com/profile.php?id=61595756510491',

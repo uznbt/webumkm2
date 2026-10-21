@@ -69,7 +69,7 @@ export default function HomePage() {
             <div className="hero__arch">
               <img
                 src="/images/site/hero-nasi.webp"
-                alt="Ilustrasi nasi dengan ayam, sambal, dan lalapan"
+                alt="Nasi ayam serundeng dengan sambal, tahu, tempe, dan lalapan"
                 width="1100"
                 height="1375"
                 fetchPriority="high"
@@ -123,8 +123,8 @@ export default function HomePage() {
           </div>
 
           <p className="illustration-note">
-            Foto menu pada katalog ini merupakan ilustrasi. Foto asli dapat ditanyakan langsung ke
-            kedai.
+            Foto menu yang tampil adalah foto asli kedai. Sebagian menu belum memiliki foto. Harga
+            dan ketersediaan dapat berubah sewaktu-waktu.
           </p>
         </div>
       </section>
@@ -155,15 +155,21 @@ export default function HomePage() {
                   to={`/katalog?kategori=${category.id}`}
                 >
                   <span className="category-row__number">{category.number}</span>
-                  <img
-                    className="category-row__image"
-                    src={category.image}
-                    alt=""
-                    width="72"
-                    height="72"
-                    loading="lazy"
-                    decoding="async"
-                  />
+                  {category.image ? (
+                    <img
+                      className="category-row__image"
+                      src={category.image}
+                      alt=""
+                      width="72"
+                      height="72"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  ) : (
+                    <span className="category-row__image category-row__image--empty" aria-hidden="true">
+                      <Icon size={26} strokeWidth={1.4} />
+                    </span>
+                  )}
                   <span className="category-row__content">
                     <span className="category-row__name">
                       <Icon size={18} aria-hidden="true" />

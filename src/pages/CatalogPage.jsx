@@ -22,7 +22,7 @@ const normalize = (text) =>
 export default function CatalogPage() {
   usePageMeta(
     'Katalog Menu',
-    'Cari dan filter menu Kedai Ibu Kost: makanan, cemilan, dan minuman dengan harga Rp2.500–Rp15.000.',
+    'Cari dan filter menu Kedai Ibu Kost: makanan, cemilan, dan minuman dengan harga Rp1.000–Rp15.000.',
   );
 
   const [searchParams, setSearchParams] = useSearchParams();
@@ -222,8 +222,9 @@ export default function CatalogPage() {
           )}
 
           <p className="illustration-note illustration-note--catalog">
-            Foto menu di katalog ini merupakan ilustrasi. Harga dapat berubah sewaktu-waktu dan
-            ketersediaan dikonfirmasi lewat {site.whatsapp ? 'WhatsApp' : 'Instagram'}.
+            Foto menu yang tampil adalah foto asli kedai; sebagian menu belum memiliki foto. Harga
+            dapat berubah sewaktu-waktu dan ketersediaan dikonfirmasi lewat{' '}
+            {site.whatsapp ? 'WhatsApp' : 'Instagram'}.
           </p>
         </div>
       </section>

@@ -1,0 +1,21 @@
+{
+  "name": "Kedai Ibu Kost",
+  "short_name": "Kedai Ibu Kost",
+  "description": "Katalog menu Kedai Ibu Kost, Pasirjengkol, Karawang.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f6f0e4",
+  "theme_color": "#75271d",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
